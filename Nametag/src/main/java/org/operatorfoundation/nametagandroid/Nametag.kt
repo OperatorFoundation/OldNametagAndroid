@@ -17,7 +17,7 @@ class Nametag {
     val expectedPublicKeySize: Int = 65
     val expectedSignatureSize: Int = 64
 
-    fun check(challenge: Data, clientPublicKey: PublicKey, signature: Signature)
+    fun check(challenge: ByteArray, clientPublicKey: PublicKey, signature: Signature)
     {
         // FIXME: isValidSignature is not yet implemented in KeychainAndroid
         clientPublicKey.isValidSignature(signature, challenge) ?: throw Exception(NametagError.verificationFailed.toString())
@@ -76,21 +76,8 @@ class Nametag {
 
     }
 
-    // FIXME: Digest has not yet been implemented in KeychainAndroid
-    fun endorse(digest: Digest): Signature {
-        throw Exception("endorse(digest:) not yet implemented")
-    }
-
     fun endorse(data: ByteArray): Signature {
         throw Exception("endorse(data:) not yet implemented")
-    }
-
-//    fun endorse<T>(object: T): EndorsedTypedDocument<T> where T: Codable {
-//        return null
-//    }
-
-    fun verify(signature: Signature, digest: Digest): Boolean {
-        return false
     }
 
     fun verify(signature: Signature, data: ByteArray): Boolean {
