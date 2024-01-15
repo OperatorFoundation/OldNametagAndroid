@@ -28,3 +28,5 @@ google-services.json
 
 # Android Profiling
 *.hprof
+TransmissionNametag/proguard-rules.pro
+TransmissionNametag/consumer-rules.pro

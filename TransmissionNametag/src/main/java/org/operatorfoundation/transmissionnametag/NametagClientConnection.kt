@@ -1,12 +1,11 @@
-package org.operatorfoundation.nametagandroid
+package org.operatorfoundation.transmissionnametag
 
 import org.operatorfoundation.keychainandroid.*
 import org.operatorfoundation.nametagandroid.*
 import org.operatorfoundation.transmission.Transmission
-import org.operatorfoundation.transmission.TransmissionConnection
 import java.util.logging.Logger
 
-class NametagClientConnection: AuthenticatingConnection
+class NametagClientConnection: org.operatorfoundation.transmissionnametag.AuthenticatingConnection
 {
     public var publicKey: PublicKey
     {

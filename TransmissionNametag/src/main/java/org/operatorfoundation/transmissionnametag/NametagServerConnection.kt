@@ -1,10 +1,9 @@
-package org.operatorfoundation.nametagandroid
+package org.operatorfoundation.transmissionnametag
 
 import org.operatorfoundation.keychainandroid.*
-import org.operatorfoundation.nametagandroid.Nametag
 import org.operatorfoundation.transmission.*
 
-class NametagServerConnection: AuthenticatedConnection
+class NametagServerConnection: org.operatorfoundation.transmissionnametag.AuthenticatedConnection
 {
 //    public var publicKey: PublicKey
 ////    {

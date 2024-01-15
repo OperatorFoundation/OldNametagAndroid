@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "NametagAndroid"
 include(":Nametag")
+include(":TransmissionNametag")

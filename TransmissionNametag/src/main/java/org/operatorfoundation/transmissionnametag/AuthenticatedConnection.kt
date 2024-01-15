@@ -1,4 +1,4 @@
-package org.operatorfoundation.nametagandroid
+package org.operatorfoundation.transmissionnametag
 
 import org.operatorfoundation.keychainandroid.*
 import org.operatorfoundation.nametagandroid.Nametag

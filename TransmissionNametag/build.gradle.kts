@@ -4,14 +4,14 @@ plugins {
 }
 
 android {
-    namespace = "org.operatorfoundation.nametagandroid"
+    namespace = "org.operatorfoundation.transmissionnametag"
     compileSdk = 34
 
     defaultConfig {
         minSdk = 24
 
-        multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -24,11 +24,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "1.8"
     }
 }
 
@@ -41,6 +41,7 @@ dependencies {
     implementation("com.github.operatorfoundation:transmissionandroid:1.3.1")
 
     testImplementation("junit:junit:4.13.2")
+
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
