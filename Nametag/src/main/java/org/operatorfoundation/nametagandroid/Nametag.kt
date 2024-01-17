@@ -27,7 +27,7 @@ class Nametag(keychain: Keychain)
 
         fun checkLive(connection: TransmissionConnection): PublicKey
         {
-            val clientPublicKeyData = connection.read(expectedPublicKeySize) ?: throw Exception(NametagError.noPublicKeyReceived.toString())
+            val clientPublicKeyData: ByteArray = connection.read(expectedPublicKeySize) ?: throw Exception(NametagError.noPublicKeyReceived.toString())
             val clientPublicKey = PublicKey.P256Signing(clientPublicKeyData)
             val challenge = Random.nextBytes(challengeSize)
 

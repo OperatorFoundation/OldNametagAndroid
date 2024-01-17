@@ -1,19 +1,29 @@
 package org.operatorfoundation.transmissionnametag
 
-import org.operatorfoundation.keychainandroid.*
+import org.operatorfoundation.keychainandroid.Keychain
+import org.operatorfoundation.keychainandroid.PublicKey
 import org.operatorfoundation.nametagandroid.Nametag
-import org.operatorfoundation.transmission.*
+import org.operatorfoundation.transmission.Connection
 import java.util.logging.Logger
 
-object AuthenticatingConnection
+open class AuthenticatingConnection(baseConnection: Connection, keychain: Keychain, logger: Logger)
 {
-    lateinit var publicKey: PublicKey
-    lateinit var network: TransmissionConnection
+    private val protectedConnection: Connection
+    private val protectedPublicKey: PublicKey
 
-    // init(_ base: any TransmissionTypes.Connection, _ keychain: KeychainProtocol, _ logger: Logger) throws
+    val connection: Connection
+        get() {
+            return protectedConnection
+        }
+    val publicKey: PublicKey
+        get() {
+            return protectedPublicKey
+        }
+
     init {
-        val base: TransmissionConnection
-        val keychain: Keychain
-        val logger: Logger
+        val nametag = Nametag(keychain)
+        protectedPublicKey = nametag.publicKey
+        protectedConnection = baseConnection
     }
+
 }

@@ -39,6 +39,7 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0")
     implementation("com.github.operatorfoundation:keychainandroid:KeychainTypesReArch-SNAPSHOT")
     implementation("com.github.operatorfoundation:transmissionandroid:1.3.1")
+    implementation(project(":Nametag"))
 
     testImplementation("junit:junit:4.13.2")
 
