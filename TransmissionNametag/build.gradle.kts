@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "org.operatorfoundation.transmissionnametag"
-    compileSdk = 34
+    compileSdk = 33
 
     defaultConfig {
         minSdk = 24
@@ -23,22 +23,22 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
-    implementation("com.github.operatorfoundation:keychainandroid:KeychainTypesReArch-SNAPSHOT")
-    implementation("com.github.operatorfoundation:transmissionandroid:1.3.1")
+    implementation("com.github.operatorfoundation:KeychainAndroid:KeychainTypesReArch-SNAPSHOT")
+    implementation("com.github.operatorfoundation:TransmissionAndroid:1.3.1")
     implementation(project(":Nametag"))
 
     testImplementation("junit:junit:4.13.2")
