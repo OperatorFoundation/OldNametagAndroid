@@ -1,6 +1,7 @@
 package org.operatorfoundation.transmissionnametag
 
 import org.operatorfoundation.keychainandroid.Keychain
+import org.operatorfoundation.transmission.Connection
 import java.util.logging.Logger
 
 class NametagClientConnection(baseConnection: Connection, keychain: Keychain, logger: Logger): AuthenticatingConnection(baseConnection, keychain, logger)
