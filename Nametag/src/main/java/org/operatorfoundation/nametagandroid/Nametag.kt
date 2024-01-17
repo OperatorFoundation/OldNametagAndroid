@@ -28,7 +28,8 @@ class Nametag(keychain: Keychain)
         fun checkLive(connection: TransmissionConnection): PublicKey
         {
             val clientPublicKeyData: ByteArray = connection.read(expectedPublicKeySize) ?: throw Exception(NametagError.noPublicKeyReceived.toString())
-            val clientPublicKey = PublicKey.P256Signing(clientPublicKeyData)
+            val clientPublicKey= PublicKey.keychainBytesToJavaPublicKey(clientPublicKeyData)
+            val signedClientPublicKey = PublicKey.P256Signing(clientPublicKey)
             val challenge = Random.nextBytes(challengeSize)
 
             val wroteChallenge = connection.write(challenge)
@@ -42,8 +43,8 @@ class Nametag(keychain: Keychain)
 
             try
             {
-                check(challenge, clientPublicKey, signature)
-                return clientPublicKey
+                check(challenge, signedClientPublicKey, signature)
+                return signedClientPublicKey
             }
             catch (error: Error)
             {
@@ -75,17 +76,23 @@ class Nametag(keychain: Keychain)
     fun proveLive(connection: Connection)
     {
         val publicKeyData = publicKey.data
+        val wrotePublicKey: Boolean
 
-        if (publicKeyData.size != expectedPublicKeySize)
+        if (publicKeyData != null)
         {
-            throw Exception("Received a public key of ${publicKeyData.size} bytes, expected $expectedPublicKeySize bytes.")
+            if (publicKeyData.size != expectedPublicKeySize)
+            {
+                throw Exception("Received a public key of ${publicKeyData.size} bytes, expected $expectedPublicKeySize bytes.")
+            }
+
+            wrotePublicKey = connection.write(publicKeyData)
+            if (!wrotePublicKey)
+            {
+                throw Exception(NametagError.writeFailed.toString())
+            }
         }
 
-        val wrotePublicKey = connection.write(publicKeyData)
-        if (!wrotePublicKey)
-        {
-            throw Exception(NametagError.writeFailed.toString())
-        }
+
 
         val challenge = connection.read(challengeSize) ?: throw Exception(NametagError.noChallengeReceived.toString())
         val result = prove(challenge)
