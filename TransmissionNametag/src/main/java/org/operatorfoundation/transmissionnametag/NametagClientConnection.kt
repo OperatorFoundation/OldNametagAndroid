@@ -7,6 +7,8 @@ import java.util.logging.Logger
 class NametagClientConnection(baseConnection: Connection, keychain: Keychain, logger: Logger): AuthenticatingConnection(baseConnection, keychain, logger)
 {
 
+//    constructor(config: Shadow)
+
 //    public enum NametagClientConnectionError: Error
 //    {
 //        case readFailed
