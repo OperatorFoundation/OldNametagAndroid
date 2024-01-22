@@ -5,10 +5,10 @@ plugins {
 
 android {
     namespace = "org.operatorfoundation.nametag"
-    compileSdk = 33
 
     defaultConfig {
         minSdk = 24
+        compileSdk = 33
 
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -35,6 +35,8 @@ android {
         jvmTarget = "17"
     }
 }
+
+
 
 dependencies {
 
