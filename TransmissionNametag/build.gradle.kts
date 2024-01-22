@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("maven-publish")
 }
 
 android {
@@ -13,6 +14,10 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
         multiDexEnabled = true
+
+        aarMetadata {
+            minCompileSdk = 24
+        }
     }
 
     buildTypes {
@@ -32,6 +37,8 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 }
+
+
 
 dependencies {
 

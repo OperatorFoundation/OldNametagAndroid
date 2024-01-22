@@ -1,10 +1,11 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("maven-publish")
 }
 
 android {
-    namespace = "org.operatorfoundation.nametagandroid"
+    namespace = "org.operatorfoundation.nametag"
     compileSdk = 33
 
     defaultConfig {
@@ -12,6 +13,10 @@ android {
 
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        aarMetadata {
+            minCompileSdk = 24
+        }
     }
 
     buildTypes {
