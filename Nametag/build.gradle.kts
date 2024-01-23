@@ -44,7 +44,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "org.operatorfoundation"
                 artifactId = "Nametag"
-                version = "0.1.5"
+                version = "0.1.8"
 
                 // Make sure the AAR file is included as an artifact
                 artifact("$buildDir/outputs/aar/${project.name}-release.aar")
