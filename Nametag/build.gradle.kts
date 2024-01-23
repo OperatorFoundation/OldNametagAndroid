@@ -12,10 +12,6 @@ android {
 
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        aarMetadata {
-            minCompileSdk = 24
-        }
     }
 
     buildTypes {
@@ -37,13 +33,13 @@ android {
 }
 
 dependencies {
-
+    implementation("androidx.multidex:multidex:2.0.1")
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
+
     implementation("com.github.operatorfoundation:KeychainAndroid:5.0.1")
     implementation("com.github.operatorfoundation:TransmissionAndroid:1.3.3")
-
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
