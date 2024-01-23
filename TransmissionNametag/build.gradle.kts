@@ -38,6 +38,29 @@ android {
     }
 }
 
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "org.operatorfoundation"
+                artifactId = "TransmissionNametag"
+                version = "0.1.5"
+
+                // Make sure the AAR file is included as an artifact
+                artifact("$buildDir/outputs/aar/${project.name}-release.aar")
+            }
+        }
+
+        repositories {
+            maven {
+                name = "jitpack"
+                url = uri("https://jitpack.io")
+            }
+        }
+    }
+}
+
 
 
 dependencies {
