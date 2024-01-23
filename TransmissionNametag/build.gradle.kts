@@ -1,7 +1,6 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
-    id("maven-publish")
 }
 
 
@@ -35,29 +34,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
-    }
-}
-
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                from(components["release"])
-                groupId = "org.operatorfoundation"
-                artifactId = "TransmissionNametag"
-                version = "0.1.8"
-
-                // Make sure the AAR file is included as an artifact
-                artifact("$buildDir/outputs/aar/${project.name}-release.aar")
-            }
-        }
-
-        repositories {
-            maven {
-                name = "jitpack"
-                url = uri("https://jitpack.io")
-            }
-        }
     }
 }
 
