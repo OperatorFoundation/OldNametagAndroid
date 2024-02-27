@@ -38,8 +38,8 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
 
-    implementation("com.github.operatorfoundation:keychainandroid:5.0.9")
-    implementation("com.github.operatorfoundation:transmissionandroid:1.3.3")
+    implementation("com.github.operatorfoundation:KeychainAndroid:5.0.9")
+    implementation("com.github.operatorfoundation:TransmissionAndroid:1.3.4")
     implementation(project(":Nametag"))
 
     testImplementation("junit:junit:4.13.2")
