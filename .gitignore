@@ -30,3 +30,4 @@ google-services.json
 *.hprof
 TransmissionNametag/proguard-rules.pro
 TransmissionNametag/consumer-rules.pro
+.DS_Store
