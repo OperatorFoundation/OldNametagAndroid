@@ -12,6 +12,7 @@ android {
         multiDexEnabled = true
         consumerProguardFiles("consumer-rules.pro")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -39,7 +40,7 @@ dependencies {
     implementation("com.google.android.material:material:1.9.0")
 
     implementation("com.github.operatorfoundation:KeychainAndroid:5.0.9")
-    implementation("com.github.operatorfoundation:TransmissionAndroid:1.3.4")
+    implementation("com.github.operatorfoundation:TransmissionAndroid:1.3.5")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

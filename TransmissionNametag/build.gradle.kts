@@ -39,7 +39,7 @@ dependencies {
     implementation("com.google.android.material:material:1.9.0")
 
     implementation("com.github.operatorfoundation:KeychainAndroid:5.0.9")
-    implementation("com.github.operatorfoundation:TransmissionAndroid:1.3.4")
+    implementation("com.github.operatorfoundation:TransmissionAndroid:1.3.5")
     implementation(project(":Nametag"))
 
     testImplementation("junit:junit:4.13.2")
